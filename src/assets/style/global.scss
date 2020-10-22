@@ -1,0 +1,83 @@
+@import './base/reset';
+@import './base/fonts';
+@import './base/variables';
+@import './base/mixins';
+
+body {
+	height: 100vh;
+	#root {
+		height: 100%;
+	}
+}
+
+*::selection {
+	background-color: $primary;
+	color: $white;
+}
+
+* {
+	scrollbar-color: $primary;
+	scrollbar-width: thin;
+
+	/* width */
+	&::-webkit-scrollbar {
+		width: 3px;
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		border-radius: 10px;
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: $primary;
+		border-radius: 10px;
+	}
+
+	/* Handle on hover */
+	&::-webkit-scrollbar-thumb:hover {
+		background: $grey;
+	}
+	/* Handle on focus */
+	&::-webkit-scrollbar-thumb:focus {
+		background: $grey;
+	}
+}
+
+.text--input {
+	border: 0;
+	border-bottom: 2px solid $whiteGrey;
+	padding: 12px;
+	outline: none;
+	color: $textBody;
+	@include setFontFamily('medium');
+	@include setFontSize('md');
+	&::placeholder {
+		color: $grey;
+	}
+}
+
+.text--link:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.primary--button {
+	border: 0;
+	border-radius: 5px;
+	padding: 12px 64px;
+	background: $primary;
+	color: $white;
+	outline: none;
+	@include setFontFamily('semibold');
+	@include setFontSize('lg');
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+path {
+	fill: inherit;
+}

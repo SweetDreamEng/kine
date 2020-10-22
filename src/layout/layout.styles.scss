@@ -1,0 +1,91 @@
+@import '../assets/style/global';
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 0.12fr 1fr;
+  height: 100%;
+
+  .addButton {
+    float: right;
+  }
+
+  .main-layout__sidebar {
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    position: relative;
+
+    .main-layout__logo-container {
+      padding: 40px 35px 64px;
+
+      .main-layout__logo-text {
+        padding: 10px 0 0;
+        text-align: right;
+        @include setFontSize('lg');
+        @include setFontFamily('semibold');
+      }
+    }
+
+    .main-layout__links {
+      display: grid;
+
+      .main-layout__link {
+        margin: 15px auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 180px;
+
+        a {
+          text-decoration: none;
+          color: $grey;
+          display: flex;
+          align-items: center;
+
+          span {
+            @include setFontFamily('semibold');
+            font-size: 22px;
+            padding-left: 20px;
+          }
+        }
+
+        &:hover,
+        &.active {
+          background: $lightBlue;
+        }
+        
+        &.active {
+          span {
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    .main-layout__sidebar-footer {
+      position: relative;
+      flex: 1;
+      display: grid;
+      place-content: end center;
+      padding-bottom: 10px;
+
+      p {
+        color: $grey;
+        @include setFontFamily('regular');
+        font-size: 12px;
+
+        b {
+          @include setFontFamily('medium');
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .main-layout__content {
+    padding: 70px 40px 0;
+    overflow: hidden;
+  }
+}

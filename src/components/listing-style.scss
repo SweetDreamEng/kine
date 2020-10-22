@@ -1,0 +1,72 @@
+@import 'assets/style/global';
+
+.list-container {
+  overflow-y: scroll;
+  border: 2px solid $whiteGrey;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .list-container__header {
+    justify-content: space-between;
+    padding: 20px 30px;
+    background: $whiteGrey;
+    border-radius: 8px;
+    margin-bottom: 40px;
+
+    .list-container__header-title {
+      @include setFontFamily('medium');
+      font-size: 25px;
+      font-weight: 500;
+      color: $black;
+      text-transform: capitalize;
+      height: 48px;
+      padding: 19px 32px 0px 32px;
+      text-align: left;
+    }
+  }
+
+  .list-container__list-item {
+    padding: 20px 30px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    @include setFontFamily('regular');
+    color: $grey;
+    height: 70px;
+    margin: 20px;
+
+    td {
+      padding-top: 20px;
+      padding-left: 40px;
+    }
+
+    .list-container__list-item-action {
+      background: $whiteGrey;
+      padding: 9px;
+      border-radius: 5px;
+      width: 20px;
+      height: 20px;
+      margin-left: 20px;
+    }
+  }
+}
+
+.users-container {
+  .list-container {
+    &__header {
+      tr {
+        th:last-child {
+          display: none;
+        }
+      }
+    }
+
+    &__list-item {
+      td:last-child {
+        display: none;
+      }
+    }
+  }
+}

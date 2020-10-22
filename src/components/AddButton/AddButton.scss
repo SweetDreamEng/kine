@@ -1,0 +1,17 @@
+.addButton {
+  font-weight: bolder;
+  font-size: 45px;
+  height: 56px;
+  width: 33px;
+  align-items: center;
+  color: #2A4FAF;
+  background-color: #F3F6FC;
+  border-radius: 8px;
+  padding: 12px 34px 0px 33px;
+  margin-bottom: 40px;
+  cursor: pointer;
+
+  .addButtonText {
+    display: initial;
+  }
+}

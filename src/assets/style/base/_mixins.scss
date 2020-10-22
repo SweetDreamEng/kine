@@ -1,0 +1,34 @@
+// REUSABLE MIXINS
+@import './variables';
+
+@function capitalize($string) {
+	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+// do not allow user to select text
+@mixin unSelect {
+	user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+@mixin setFontSize($type) {
+	@if $type == sm {
+		font-size: 13px;
+	} @else if $type == md {
+		font-size: 15px;
+	} @else if $type == lg {
+		font-size: 18px;
+	} @else if $type == xl {
+		font-size: 21px;
+	} @else {
+		@error "Unknown type #{$type}.";
+	}
+}
+
+@mixin setFontFamily($weight) {
+	font-family: 'Montserrat #{capitalize($weight)}', sans-serif;
+}

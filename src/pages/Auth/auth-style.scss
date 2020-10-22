@@ -1,0 +1,114 @@
+@import 'assets/style/global';
+
+.auth-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+
+  .auth-page__left-container {
+    padding: 40px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.2);
+
+    .auth-page__logo-container {
+      position: absolute;
+      left: 40px;
+      top: 40px;
+
+      .auth-page__logo-text {
+        text-align: right;
+        @include setFontSize('xl');
+        @include setFontFamily('regular');
+        color: $black;
+        margin: 10px -25px;
+      }
+    }
+
+    .auth-page__form-container {
+      .auth-page__form-title {
+        @include setFontSize('xl');
+        @include setFontFamily('semibold');
+        color: $textBody;
+        padding: 80px;
+        text-align: center;
+      }
+
+      .auth-page__form-error {
+        background: rgba($danger, 0.2);
+        color: $danger;
+        padding: 12px 30px;
+        border-radius: 5px;
+        text-align: center;
+        max-width: 400px;
+        // word-break: break-all;
+        line-height: 18px;
+        @include setFontSize('sm');
+        @include setFontFamily('regular');
+      }
+
+      .auth-page__form {
+        display: grid;
+
+        input {
+          margin: 30px 0;
+          // min-width: 400px;
+        }
+
+        .auth-page__form-forget-password {
+          color: $textBody;
+          @include setFontSize('sm');
+          @include setFontFamily('regular');
+          @include unSelect;
+        }
+
+        button {
+          width: 345px;
+          margin: 60px auto;
+        }
+      }
+
+      .verify-form {
+        text-align: center;
+
+        &__input {
+          margin: 30px 5px !important;
+          text-align: center;
+          line-height: 80px;
+          font-size: 50px;
+          border: 0px;
+          border-bottom: solid 4px #ccc;
+          outline: none;
+          width: 40px;
+          transition: all .2s ease-in-out;
+
+          /* Chrome, Safari, Edge, Opera */
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          /* Firefox */
+          &[type=number] {
+            -moz-appearance: textfield;
+          }
+
+          &:focus {
+            border-color: #ccc;
+            box-shadow: 0 0 2px 0 #ccc inset;
+          }
+        }
+      }
+    }
+  }
+
+  .auth-page__right-container {
+    background-image: url('https://source.unsplash.com/user/soltivo/likes/');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+}
