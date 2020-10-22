@@ -6,18 +6,8 @@ import { omit, reject } from 'lodash'
 
 const getInitialState = () => {
   return {
-    group: null,
-    groups: [],
-    category: null,
-    categories: [],
-    product: null,
-    products: [],
-    coins: [],
-    subscriptions: [],
-    exercise: null,
-    exericses: [],
-    post: null,
-    posts: [],
+    user: null,
+    users: [],
   }
 }
 
@@ -25,23 +15,23 @@ const getInitialState = () => {
 // Reducer
 // ------------------------------------
 export default handleActions({
-  [requestSuccess(CONSTANTS.GET_GROUP)]: (state, { payload }) => ({
+  [requestSuccess(CONSTANTS.GET_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestSuccess(CONSTANTS.GET_GROUP),
-    group: payload,
+    status: requestSuccess(CONSTANTS.GET_USER),
+    user: payload,
     error: null
   }),
 
-  [requestFail(CONSTANTS.GET_GROUP)]: (state, { payload }) => ({
+  [requestFail(CONSTANTS.GET_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestFail(CONSTANTS.GET_GROUP),
+    status: requestFail(CONSTANTS.GET_USER),
     error: payload
   }),
 
-  [requestSuccess(CONSTANTS.GET_GROUPS)]: (state, { payload }) => ({
+  [requestSuccess(CONSTANTS.GET_USERS)]: (state, { payload }) => ({
     ...state,
-    status: requestSuccess(CONSTANTS.GET_GROUPS),
-    groups: payload.results,
+    status: requestSuccess(CONSTANTS.GET_USERS),
+    users: payload.results,
     params: {
       ...state.params,
       ...omit(payload, 'results')
@@ -49,48 +39,48 @@ export default handleActions({
     error: null
   }),
 
-  [requestFail(CONSTANTS.GET_GROUPS)]: (state, { payload }) => ({
+  [requestFail(CONSTANTS.GET_USERS)]: (state, { payload }) => ({
     ...state,
-    status: requestFail(CONSTANTS.GET_GROUPS),
+    status: requestFail(CONSTANTS.GET_USERS),
     error: payload
   }),
 
-  [requestSuccess(CONSTANTS.CREATE_GROUP)]: (state, { payload }) => ({
+  [requestSuccess(CONSTANTS.CREATE_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestSuccess(CONSTANTS.CREATE_GROUP),
-    group: payload,
+    status: requestSuccess(CONSTANTS.CREATE_USER),
+    user: payload,
     error: null
   }),
 
-  [requestFail(CONSTANTS.CREATE_GROUP)]: (state, { payload }) => ({
+  [requestFail(CONSTANTS.CREATE_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestFail(CONSTANTS.CREATE_GROUP),
+    status: requestFail(CONSTANTS.CREATE_USER),
     error: payload
   }),
 
-  [requestSuccess(CONSTANTS.UPDATE_GROUP)]: (state, { payload }) => ({
+  [requestSuccess(CONSTANTS.UPDATE_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestSuccess(CONSTANTS.UPDATE_GROUP),
-    group: payload,
+    status: requestSuccess(CONSTANTS.UPDATE_USER),
+    user: payload,
     error: null
   }),
 
-  [requestFail(CONSTANTS.UPDATE_GROUP)]: (state, { payload }) => ({
+  [requestFail(CONSTANTS.UPDATE_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestFail(CONSTANTS.UPDATE_GROUP),
+    status: requestFail(CONSTANTS.UPDATE_USER),
     error: payload
   }),
 
-  [requestSuccess(CONSTANTS.DELETE_GROUP)]: (state, { payload }) => ({
+  [requestSuccess(CONSTANTS.DELETE_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestSuccess(CONSTANTS.DELETE_GROUP),
-    groups: reject(state.groups, { id: payload.id }),
+    status: requestSuccess(CONSTANTS.DELETE_USER),
+    users: reject(state.users, { id: payload.id }),
     error: null
   }),
 
-  [requestFail(CONSTANTS.DELETE_GROUP)]: (state, { payload }) => ({
+  [requestFail(CONSTANTS.DELETE_USER)]: (state, { payload }) => ({
     ...state,
-    status: requestFail(CONSTANTS.DELETE_GROUP),
+    status: requestFail(CONSTANTS.DELETE_USER),
     error: payload
   }),
 
